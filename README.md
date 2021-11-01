@@ -4,7 +4,8 @@ just stuff that helps with cybersecurity
 
 just a script to automate openvpn 
 
-How to 
+How to
+
 we need to give it the right permissions:
 
 chmod 775 <the-name-of-the-script>
