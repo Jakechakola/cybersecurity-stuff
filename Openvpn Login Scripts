@@ -1,0 +1,55 @@
+#!/bin/bash
+#WARRING can only have one file in the specifed directory (will fix in the future)
+#This script files will run the openvpn comand with the .ovpn file in the specified directory
+#So you can drage and drop the openvpn.ovpn file in the specified directory
+#And start the script,
+
+
+
+filePath_Htb="/home/kali/Desktop/htb/HTB_VPN"
+#  use this to specify the directory to find the .ovpn file 
+
+
+filePath_Thm=""
+#filePath_Thm="<path-to-the-tryhackme-directory>"
+# use this to specify the directory to find the .ovpn file in the line above if your using try_hack_me.revmove the
+
+
+#user's input to see what he will be using:
+echo "Specify which vpn you will be using(htb or thm):"
+
+
+
+read vpn
+
+#checks what the User is using and starts it
+if [ $vpn == 'htb' ]
+then
+	# check if var filePath is zero length
+	if [ -z "$filePath_Htb" ]
+	then 
+		echo "plz specify the directory in which the file is stored"
+		#plz specify the directory in which the file is stored
+	else
+		echo "finding the .ovpn file"
+        	echo "Starting the vpn service..."
+     	  	var=$(find $filePath_Htb -name "*.ovpn" |tr -d '\n'|tr -d ' ')
+     	  	#var =
+     	  	echo "$var" 
+        	sudo openvpn $var
+        fi
+
+elif [ $vpn == 'thm' ]
+then    
+	# check if var filePath is zero length
+	if [ -z "$filePath_Thm" ]
+	then 
+		echo "plz specify the directory in which the file is stored"
+		#plz specify the directory in which the file is stored
+	else	
+        	echo "finding the .ovpn file"
+        	echo "Starting the vpn service..."
+     	  	var=$(find $filePath_Thm -name "*.ovpn")
+        	#sudo openvpn <$var>
+	fi
+fi 
