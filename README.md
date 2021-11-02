@@ -2,7 +2,7 @@
 just stuff that helps with cybersecurity
 
 
-just a script to automate openvpn 
+just a script to automate openvpn (for hack the box and try hack me)
 
 How to 
 
